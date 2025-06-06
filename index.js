@@ -14,6 +14,7 @@ app.post('/webhook-proxy', async (req, res) => {
   try {
     console.log('Received POST data:', req.body);
     // Forward the POST data to your internal webhook
+    console.log('Forwarding to internal webhook...');
     const response = await axios.post(
       'https://crmapi.spiderx.ai/dineo-form-webhook',
       req.body,
@@ -23,7 +24,7 @@ app.post('/webhook-proxy', async (req, res) => {
         },
       }
     );
-
+    console.log('Forwarded successfully:', response.status);
     return res.status(200).json({
       message: 'Forwarded to internal webhook successfully',
       status: response.status,
