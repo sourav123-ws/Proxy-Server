@@ -21,6 +21,7 @@ app.post('/webhook-proxy', async (req, res) => {
       {
         headers: {
           'Content-Type': 'application/json',
+          'x-webhook-key': 'sourav-webhook-key',
         },
       }
     );
